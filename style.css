@@ -1,0 +1,581 @@
+/* ==========================================
+   VARIABLES Y ESTILOS BASE
+   ========================================== */
+:root {
+  --primary-color: #2c4a3e;     /* Verde botánico profundo */
+  --primary-hover: #1e332a;
+  --secondary-color: #d4a373;   /* Dorado/Arena cálido */
+  --accent-color: #fefae0;      /* Crema suave */
+  --bg-light: #fdfbf7;          /* Fondo hueso / suave */
+  --text-dark: #2b2d42;         /* Gris oscuro elegante */
+  --text-muted: #6c757d;        /* Gris secundario */
+  --white: #ffffff;
+  
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 12px 32px rgba(44, 74, 62, 0.15);
+  --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================
+   ENCABEZADO (HEADER)
+   ========================================== */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 16px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.logo span {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  display: block;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--secondary-color);
+}
+
+/* ==========================================
+   SECCIÓN HERO CON IMAGEN DE FONDO
+   ========================================== */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('watermarked_img_15982957257379161184.jpg') center/cover no-repeat;
+  color: var(--white);
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(27, 48, 40, 0.85) 0%, rgba(10, 20, 15, 0.75) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero .subtitle {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+.btn-primary, .btn-primary-sm {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
+  border: none;
+}
+
+.btn-primary-sm {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  background-color: var(--secondary-color);
+  box-shadow: none;
+}
+
+.btn-primary:hover {
+  background-color: #c29263;
+  transform: translateY(-2px);
+}
+
+.btn-primary-sm:hover {
+  background-color: #b38355;
+}
+
+.btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+}
+
+/* ==========================================
+   SERVICIOS Y FLIP CARDS (GIRO 180°)
+   ========================================== */
+.services {
+  padding: 100px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title span {
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.section-title h2 {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-top: 8px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+}
+
+/* Estructura 3D del Giro */
+.flip-card {
+  background-color: transparent;
+  height: 480px;
+  perspective: 1000px;
+  outline: none;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: var(--border-radius);
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* FRENTE DE LA TARJETA */
+.card-front {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.highlight-card .card-front {
+  border: 2px solid var(--secondary-color);
+}
+
+.card-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.card-img-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.flip-card:hover .card-img-container img {
+  transform: scale(1.05);
+}
+
+.card-front-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.card-front h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.card-front p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.btn-flip {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+}
+
+.btn-flip:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* REVERSO DE LA TARJETA */
+.card-back {
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--white);
+  position: relative;
+}
+
+.card-back-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(27, 48, 40, 0.92) 0%, rgba(10, 20, 15, 0.95) 100%);
+  z-index: 1;
+}
+
+.card-back-content {
+  position: relative;
+  z-index: 2;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.card-back h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-bottom: 4px;
+}
+
+.detail-subtitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--secondary-color);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.card-back p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.detail-list {
+  list-style: none;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 12px;
+}
+
+.detail-list li {
+  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.detail-list strong {
+  color: var(--accent-color);
+}
+
+.card-back .btn-primary-sm {
+  align-self: flex-start;
+  text-align: center;
+}
+
+/* ==========================================
+   NOSOTROS / BENEFICIOS
+   ========================================== */
+.about {
+  background-color: var(--accent-color);
+  padding: 80px 0;
+  border-radius: var(--border-radius);
+  margin-bottom: 80px;
+}
+
+.about-text {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-text span {
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.about-text h2 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin: 12px 0 20px 0;
+}
+
+.about-text p {
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+}
+
+.features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================== */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 60px 0 30px 0;
+  text-align: center;
+}
+
+.motivational-quote {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  line-height: 1.4;
+  color: var(--accent-color);
+  border-left: none;
+  padding: 0 20px;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+/* ==========================================
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #25d366;
+  color: var(--white);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-icon {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  background-color: #20ba5a;
+}
+
+.whatsapp-btn .tooltip {
+  position: absolute;
+  right: 70px;
+  background-color: var(--text-dark);
+  color: var(--white);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.whatsapp-btn:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVO (MÓVILES)
+   ========================================== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+  
+  .section-title h2 {
+    font-size: 2.2rem;
+  }
+
+  .motivational-quote {
+    font-size: 1.3rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
