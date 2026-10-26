@@ -236,7 +236,6 @@ body {
   gap: 30px;
 }
 
-/* Estructura 3D del Giro */
 .flip-card {
   background-color: transparent;
   height: 480px;
@@ -270,7 +269,6 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-/* FRENTE DE LA TARJETA */
 .card-front {
   background-color: var(--white);
   display: flex;
@@ -357,7 +355,6 @@ body {
   color: var(--white);
 }
 
-/* REVERSO DE LA TARJETA */
 .card-back {
   background-size: cover;
   background-position: center;
@@ -479,7 +476,7 @@ body {
 }
 
 /* ==========================================
-   PIE DE PÁGINA (FOOTER)
+   PIE DE PÁGINA (FOOTER) Y NUEVOS ELEMENTOS
    ========================================== */
 .footer {
   background-color: var(--primary-color);
@@ -493,18 +490,79 @@ body {
   font-size: 1.8rem;
   font-style: italic;
   max-width: 800px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 40px auto;
   line-height: 1.4;
   color: var(--accent-color);
-  border-left: none;
   padding: 0 20px;
+}
+
+/* Grid del Footer para Dirección, Mapa y QR */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  text-align: left;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 40px 0;
+}
+
+.footer-info h3, 
+.footer-map h3, 
+.footer-qr h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--secondary-color);
+  margin-bottom: 16px;
+}
+
+.footer-address {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.review-action p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 12px;
+}
+
+/* Estilos para el mapa */
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Estilos para el Código QR */
+.qr-box {
+  background: var(--white);
+  padding: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-bottom: 8px;
+}
+
+.qr-box img {
+  display: block;
+  width: 120px;
+  height: 120px;
+}
+
+.qr-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .copyright {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 /* ==========================================
@@ -577,5 +635,9 @@ body {
 
   .nav-links {
     display: none;
+  }
+
+  .footer-grid {
+    text-align: center;
   }
 }
